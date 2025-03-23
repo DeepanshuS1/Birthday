@@ -1,3 +1,62 @@
+/* Ensure these are at the top of your CSS file */
+
+#birthday-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 1s ease;
+}
+
+#birthday-content.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#reveal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff6b6b, #6b47ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease, visibility 1s;
+}
+
+#reveal-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#reveal-button {
+    padding: 20px 40px;
+    font-size: 2rem;
+    background: white;
+    color: #ff1493;
+    border: 3px solid #ff1493;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: pulse 1.5s infinite alternate;
+}
+
+#reveal-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -25,6 +84,8 @@ header {
     background-color: rgba(255, 255, 255, 0.589);
     width: 50%;
     border-radius: 3rem;
+    opacity: 0;
+    transform: translateY(-50px);
 }
 
 header:before {
@@ -175,6 +236,8 @@ footer {
     font-weight: 500;
     position: relative;
     overflow: hidden;
+    opacity: 0;
+    transform: translateY(-50px);
 }
 
 footer:after {
@@ -231,7 +294,6 @@ footer p:after {
     right: -15px;
 }
 
-/* Add at the end of your CSS file */
 .confetti {
     position: fixed;
     width: 10px;
@@ -335,4 +397,32 @@ footer p:after {
     0% { transform: scale(0); }
     70% { transform: scale(1.2); }
     100% { transform: scale(1); }
+}
+
+/* Add these animations at the end of your CSS file */
+
+/* Animations for reveal */
+@keyframes slideDown {
+    from { transform: translateY(-100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes card-reveal {
+    from { transform: scale(0) rotate(-10deg); opacity: 0; }
+    to { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Initial states for elements that will be animated */
+header, footer {
+    opacity: 0;
+    transform: translateY(-50px);
+}
+
+#birthday-content {
+    transition: opacity 1s ease;
 }

@@ -9,57 +9,65 @@
 </head>
 
 <body>
-    <div class="balloon-decoration balloon-1">
-        <img src="/Img/balloon1.gif" alt="Balloon">
+    <!-- Add this reveal overlay -->
+    <div id="reveal-overlay">
+        <button id="reveal-button">🎁 Surprise!</button>
     </div>
-    <div class="balloon-decoration balloon-2">
-        <img src="/Img/balloon2.gif" alt="Balloon">
-    </div>
-    <div class="balloon-decoration balloon-3">
-        <img src="/Img/balloon3.gif" alt="Balloon">
-    </div>
-    <div class="balloon-decoration balloon-4">
-        <img src="/Img/balloon1.gif" alt="Balloon">
-    </div>
-    <div class="cake-decoration cake">
-        <img src="/Img/cake.gif" alt="Birthday Cake">
-    </div>
-    <div class="cake-decoration cake cake-left">
-        <img src="/Img/cake1.gif" alt="Birthday Cake">
-    </div>
-    <div class="cake-decoration candle candle-1">
-        <img src="/Img/candle.gif" alt="Candle">
-    </div>
-    <div class="cake-decoration candle candle-2">
-        <img src="/Img/candle.gif" alt="Candle">
-    </div>
-    <header>
-        <h1>Happy Birthday</h1>
-    </header>
-    <main>
-        <div class="container">
-            <div class="card">
-                <div class="card-front">
-                    <div class="img">
-                        <img src="/Img/yt.webp" alt="Deepansu" class="main-img">
-                        <img src="/Img/birthday-cake.png" alt="Birthday Cake">
+    
+    <!-- Rest of your content - will be hidden initially -->
+    <div id="birthday-content" class="hidden">
+        <div class="balloon-decoration balloon-1">
+            <img src="/Img/balloon1.gif" alt="Balloon">
+        </div>
+        <div class="balloon-decoration balloon-2">
+            <img src="/Img/balloon2.gif" alt="Balloon">
+        </div>
+        <div class="balloon-decoration balloon-3">
+            <img src="/Img/balloon3.gif" alt="Balloon">
+        </div>
+        <div class="balloon-decoration balloon-4">
+            <img src="/Img/balloon1.gif" alt="Balloon">
+        </div>
+        <div class="cake-decoration cake">
+            <img src="/Img/cake.gif" alt="Birthday Cake">
+        </div>
+        <div class="cake-decoration cake cake-left">
+            <img src="/Img/cake1.gif" alt="Birthday Cake">
+        </div>
+        <div class="cake-decoration candle candle-1">
+            <img src="/Img/candle.gif" alt="Candle">
+        </div>
+        <div class="cake-decoration candle candle-2">
+            <img src="/Img/candle.gif" alt="Candle">
+        </div>
+        <header>
+            <h1>Happy Birthday</h1>
+        </header>
+        <main>
+            <div class="container">
+                <div class="card">
+                    <div class="card-front">
+                        <div class="img">
+                            <img src="/Img/yt.webp" alt="Deepansu" class="main-img">
+                            <img src="/Img/birthday-cake.png" alt="Birthday Cake">
+                        </div>
+                        <h1 style="animation-delay: 1s;">Deepansu</h1>
+                        <p>Wishing you a day filled with love and joy!</p>
+                        <button id="revbtn">Reveal</button>
                     </div>
-                    <h1>Name here</h1>
-                    <p>Wishing you a day filled with love and joy!</p>
-                    <button>Reveal</button>
+                    <div class="card-back">
+                        <h3>Happy Birthday</h3>
+                        <p>May your birthday be as special as you are!</p>
+                        <button>Close</button>
+                    </div>
                 </div>
-                <div class="card-back">
-                    <h3>Happy Birthday</h3>
-                    <p>May your birthday be as special as you are!</p>
-                    <button>Close</button>
-                </div>
-            </div>
-    </main>
-    <footer>
-        <p>
-            Your True Friend Shivaansh
-        </p>
-    </footer>
+        </main>
+        <footer>
+            <p>
+                Your True Friend Shivaansh
+            </p>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
