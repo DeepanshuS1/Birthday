@@ -1,0 +1,338 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f1f1f1;
+    background-color: #fbff2a;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.589);
+    width: 50%;
+    border-radius: 3rem;
+}
+
+header:before {
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    width: 90%;
+    margin: 0 auto;
+    background: linear-gradient(90deg, 
+        rgba(255,105,180,1) 0%, 
+        rgba(255,223,0,1) 25%, 
+        rgba(0,191,255,1) 50%, 
+        rgba(50,205,50,1) 75%, 
+        rgba(255,105,180,1) 100%);
+    animation: slide 3s linear infinite;
+}
+
+@keyframes slide {
+    0% { background-position: 0% 0; }
+    100% { background-position: 100% 0; }
+}
+
+h1{
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 15px;
+    background: linear-gradient(to right, #fafe06, #ff05e6, #00ff00, #00d0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200%;
+    animation: gradient 5s linear infinite;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+}
+
+@keyframes gradient {
+    0%{
+        background-position: 0% 100%;
+    }
+    50%{
+        background-position: 200% 100%;
+    }
+    100%{
+        background-position: 0% 100%;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.card {
+    width: 400px;
+    height: 500px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: transform 0.6s;
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: white;
+}
+
+.card-front .img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-front .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+}
+
+.main-img{
+    position: absolute !important;
+    top: 16px;
+    left: 10px;
+}
+
+.card-front h2, .card-back h3 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.card-front p, .card-back p {
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background: #ff69b4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+button:hover {
+    background: #ff1493;
+}
+
+/* Header and Footer Enhancements */
+
+footer {
+    margin-top: 30px;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    background: linear-gradient(to right, rgba(255,105,180,0.2), rgba(255,223,0,0.2));
+    border-top: 2px solid rgba(255,105,180,0.3);
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+footer:after {
+    content: "❤️";
+    font-size: 20px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    animation: beat 1s infinite alternate;
+}
+footer:before {
+    content: "❤️";
+    font-size: 20px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    animation: beat 1s infinite alternate;
+}
+
+@keyframes beat {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Style for footer paragraph */
+footer p {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #ff0051;
+    text-shadow: 1px 1px 2px rgba(255, 105, 180, 0.3);
+    position: relative;
+    display: inline-block;
+    padding: 0 15px;
+}
+
+footer p:before, footer p:after {
+    content: "✨";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+footer p:before {
+    left: -15px;
+}
+
+footer p:after {
+    right: -15px;
+}
+
+/* Add at the end of your CSS file */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: confetti-fall 3s linear forwards;
+    z-index: 1000;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* Update balloon decorations to use GIFs */
+.balloon-decoration {
+    position: fixed;
+    z-index: -1;
+}
+
+.balloon-decoration img {
+    width: 150px;
+    height: auto;
+}
+
+.balloon-1 { top: 15%; left: 5%; animation: float-balloon 8s ease-in-out infinite; }
+.balloon-2 { top: 10%; right: 5%; animation: float-balloon 9s ease-in-out infinite 2s; }
+.balloon-3 { bottom: 20%; left: 8%; animation: float-balloon 7s ease-in-out infinite 1s; }
+.balloon-4 { bottom: 30%; right: 8%; animation: float-balloon 10s ease-in-out infinite 3s; }
+
+@keyframes float-balloon {
+    0%, 100% { transform: translateY(0) rotate(3deg); }
+    50% { transform: translateY(-20px) rotate(-3deg); }
+}
+
+/* Update cake and candle decorations to use GIFs */
+.cake-decoration {
+    position: fixed;
+    z-index: -1;
+}
+
+.cake-decoration img {
+    width: 100%;
+    height: auto;
+}
+
+.cake { 
+    bottom: 15%; 
+    right: 15%;
+    width: 220px;
+}
+
+.candle {
+    width: 100px;
+}
+
+.candle-1 { top: 25%; left: 12%; }
+.candle-2 { top: 8%; right: 18%; }
+
+/* Add this to your cake decoration section */
+.cake-left { 
+    bottom: 25%;
+    left: 25%;
+    width: 100px;
+    animation: float-cake-left 9s ease-in-out infinite 1.5s; /* Different timing */
+}
+
+@keyframes float-cake-left {
+    0%, 100% { transform: translateY(0) rotate(-1deg); }
+    50% { transform: translateY(-25px) rotate(1deg); }
+}
+
+@keyframes float-cake {
+    0%, 100% { transform: translateY(0) rotate(1deg); }
+    50% { transform: translateY(-30px) rotate(-1deg); }
+}
+
+@keyframes flicker {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; }
+    50% { transform: translateX(-50%) scale(0.9); opacity: 0.8; }
+}
+
+/* Random balloon effect */
+.balloon-1, .balloon-4 {
+    opacity: 0;
+    position: fixed;
+    z-index: 2;
+    transition: opacity 0.5s;
+    animation: none; /* Remove the float animation */
+}
+
+.balloon-1 img, .balloon-4 img {
+    width: 200px;
+}
+
+@keyframes pop-in {
+    0% { transform: scale(0); }
+    70% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
