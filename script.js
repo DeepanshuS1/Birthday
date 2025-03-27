@@ -8,19 +8,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
     
-    console.log("DOM loaded");
-    console.log("Reveal button:", revealButton);
-    console.log("Overlay:", revealOverlay);
-    console.log("Content:", birthdayContent);
-    
     // Track card state
     let rotationDegree = 0;
     let floatY = 0;
     let floatDirection = 1;
 
+    function counter() {
+        let count = 0;
+        let speed = 100;
+        const countElement = document.getElementById('age');
+        
+        
+        function updateCount() {
+            if(count == 19) {
+                countElement.style.display = 'none';
+                revealButton.style.display = 'block';
+                return;
+            }
+            
+            // Increase speed based on count
+            if (count < 15) {
+                speed += 20;
+            } else {
+                speed += 50;
+                
+                if (count === 15) {
+                    
+                    // Start color cycling animation
+                    countElement.classList.add('pulse-effect');
+                    countElement.style.animation = 'colorCycle 0.5s infinite';
+                }
+            }
+            
+            countElement.style.fontSize = `${count * 2 + 20}px`;
+            countElement.style.opacity = `${count / 10}`;
+            count++;
+            countElement.innerHTML = count;
+            setTimeout(updateCount, speed);
+        }
+        
+        setTimeout(updateCount, speed);
+    }
+    
+    counter();
+
     // Reveal everything when button is clicked
     revealButton.addEventListener('click', function() {
-        console.log("Button clicked");
         // Hide overlay
         revealOverlay.classList.add('hidden');
         
@@ -49,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     cake.style.animation = 'float-cake 8s infinite ease-in-out';
                 }, 1200 + (i * 300));
             });
-            
             
             // Animate footer
             setTimeout(() => {
