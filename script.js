@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         
         function updateCount() {
-            if(count == 19) {
+            if(count == 20) {
                 countElement.style.display = 'none';
                 revealButton.style.display = 'block';
                 return;

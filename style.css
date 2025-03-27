@@ -181,7 +181,7 @@ h1{
     --trans: -100%;
     transform: translate(var(--trans), -100%) rotate(-25deg);
     animation: rotate-ballon 10s forwards;
-    animation-delay: 11s;
+    animation-delay: 10s;
 }
 
 .ballon-right{
@@ -190,7 +190,7 @@ h1{
     right: 35px;
     transform: translate(var(--trans), -100%) rotate(25deg);
     animation: rotate-ballon 10s forwards;
-    animation-delay: 11s;
+    animation-delay: 10s;
 }
 
 @keyframes rotate-ballon {
@@ -494,4 +494,160 @@ header, footer {
 @keyframes pulse {
     0% { transform: scale(1); }
     100% { transform: scale(1.1); }
+}
+
+/* Add these responsive styles at the end of your CSS file */
+
+/* General responsive adjustments */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    header {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    .card {
+        width: 300px;
+        height: 400px;
+    }
+
+    .balloon-decoration img {
+        width: 100px;
+    }
+
+    .cake { 
+        width: 150px;
+    }
+
+    .cake-left {
+        width: 80px;
+    }
+
+    .candle {
+        width: 60px;
+    }
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    #reveal-button {
+        padding: 15px 30px;
+        font-size: 1.5rem;
+    }
+
+    #age {
+        font-size: 3rem !important;
+    }
+
+    .card {
+        width: 280px;
+        height: 380px;
+    }
+
+    .balloon-decoration img {
+        width: 80px;
+    }
+
+    .cake { 
+        width: 120px;
+        bottom: 10%;
+    }
+
+    .cake-left {
+        width: 60px;
+        bottom: 20%;
+    }
+
+    .candle {
+        width: 40px;
+    }
+
+    .balloon-1 { top: 10%; left: 2%; }
+    .balloon-2 { top: 5%; right: 2%; }
+    .balloon-3 { bottom: 15%; left: 5%; }
+    .balloon-4 { bottom: 25%; right: 5%; }
+
+    footer p {
+        font-size: 1rem;
+    }
+
+    footer:before,
+    footer:after {
+        font-size: 16px;
+    }
+}
+
+/* Landscape mode adjustments */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .card {
+        height: 300px;
+        width: 250px;
+    }
+
+    header {
+        margin-bottom: 5px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        padding: 10px;
+    }
+
+    .balloon-decoration,
+    .cake-decoration {
+        display: none;
+    }
+
+    footer {
+        margin-top: 10px;
+        padding: 10px;
+    }
+}
+
+/* Very small devices */
+@media screen and (max-width: 320px) {
+    .card {
+        width: 250px;
+        height: 350px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #reveal-button {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+    }
+
+    .balloon-decoration img {
+        width: 60px;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Fix for larger screens */
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .balloon-decoration img {
+        width: 180px;
+    }
+
+    .cake {
+        width: 250px;
+    }
 }
